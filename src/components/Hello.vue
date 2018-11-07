@@ -1,72 +1,73 @@
 <template>
-  <div class="hello">
-    <h1 class="r"> <span>span</span>{{ msg }}</h1>
+	<div>
+<el-row>
+  <el-button>默认按钮</el-button>
+  <el-button type="primary">主要按钮</el-button>
+  <el-button type="success">成功按钮</el-button>
+  <el-button type="info">信息按钮</el-button>
+  <el-button type="warning">警告按钮</el-button>
+  <el-button type="danger">危险按钮</el-button>
+</el-row>
+
+<el-row>
+  <el-button plain>朴素按钮</el-button>
+  <el-button type="primary" plain>主要按钮</el-button>
+  <el-button type="success" plain>成功按钮</el-button>
+  <el-button type="info" plain>信息按钮</el-button>
+  <el-button type="warning" plain>警告按钮</el-button>
+  <el-button type="danger" plain>危险按钮</el-button>
+</el-row>
 	
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
-  </div>
+ <el-select v-model="value2" placeholder="请选择">
+    <el-option
+      v-for="item in options2"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value"
+      :disabled="item.disabled">
+    </el-option>
+  </el-select>
+	</div>
+ 
+	
 </template>
 
 <script>
 export default {
-  name: 'hello',
-  data () {
-    return {
-          msg: 'Welcome to Your Vue.js App'
+    data() {
+        return {
+            options2: [
+                {
+                    value: '选项1',
+                    label: '黄金糕'
+                },
+                {
+                    value: '选项2',
+                    label: '双皮奶',
+                    disabled: true
+                },
+                {
+                    value: '选项3',
+                    label: '蚵仔煎'
+                },
+                {
+                    value: '选项4',
+                    label: '龙须面'
+                },
+                {
+                    value: '选项5',
+                    label: '北京烤鸭'
+                }
+            ],
+            value2: ''
+        };
     }
-  }
-}
+};
 </script>
+<style lang=scss>
+@import '../assets/scss/var.scss';
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style  lang=scss type="text/css">
-	@import "../assets/scss/var.scss";  
-	
-	.hello{
-		width:900rem/$rem;
-		height:100rem/$rem;
-		border:1pc solid  red;
-		transition:  al 2s;
-	}
-h1 {
-  font-weight: normal;
-	box-shadow:  2px 2px 2px $text-primary;
-	display:flex;
-
-
-
-	span{
-		color:$text-primary;
-		font-size: 40px;
-	}
-	 
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
+span {
+    display: flex;
 }
 </style>
