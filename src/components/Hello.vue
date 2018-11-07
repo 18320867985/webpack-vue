@@ -1,83 +1,87 @@
-<template>
-	<div class="div">
-<el-row>
-  <el-button>默认按钮</el-button>
-  <el-button type="primary">主要按钮</el-button>
-  <el-button type="success">成功按钮</el-button>
-  <el-button type="info">信息按钮</el-button>
-  <el-button type="warning">警告按钮</el-button>
-  <el-button type="danger">危险按钮</el-button>
-</el-row>
-</el-row>
-	<el-row>
-		<el-button plain>朴素按钮</el-button>
-		<el-button type="primary" plain>主要按钮</el-button>
-		<el-button type="success" plain>成功按钮</el-button>
-		<el-button type="info" plain>信息按钮</el-button>
-		<el-button type="warning" plain>警告按钮</el-button>
-		<el-button type="danger" plain>危险按钮</el-button>
-	</el-row>
-		
-	 <el-select v-model="value2" placeholder="请选择">
-			<el-option
-				v-for="item in options2"
-				:key="item.value"
-				:label="item.label"
-				:value="item.value"
-				:disabled="item.disabled">
-			</el-option>
-		</el-select>
+el-button type="text" @click="dialogTableVisible = true">打开嵌套表格的 Dialog</el-button>
 
-</div>
- 
-	
+<el-dialog title="收货地址" :visible.sync="dialogTableVisible">
+  <el-table :data="gridData">
+    <el-table-column property="date" label="日期" width="150"></el-table-column>
+    <el-table-column property="name" label="姓名" width="200"></el-table-column>
+    <el-table-column property="address" label="地址"></el-table-column>
+  </el-table>
+</el-dialog>
+
+<!-- Form -->
+<el-button type="text" @click="dialogFormVisible = true">打开嵌套表单的 Dialog</el-button>
+<template>
+	<div>
+	<!-- Table -->
+<el-button type="text" @click="dialogTableVisible = true">打开嵌套表格的 Dialog</el-button>
+
+<el-dialog title="收货地址" :visible.sync="dialogTableVisible">
+  <el-table :data="gridData">
+    <el-table-column property="date" label="日期" width="150"></el-table-column>
+    <el-table-column property="name" label="姓名" width="200"></el-table-column>
+    <el-table-column property="address" label="地址"></el-table-column>
+  </el-table>
+</el-dialog>
+
+<!-- Form -->
+<el-button type="text" @click="dialogFormVisible = true">打开嵌套表单的 Dialog</el-button>
+
+<el-dialog title="收货地址" :visible.sync="dialogFormVisible">
+  <el-form :model="form">
+    <el-form-item label="活动名称" :label-width="formLabelWidth">
+      <el-input v-model="form.name" autocomplete="off"></el-input>
+    </el-form-item>
+    <el-form-item label="活动区域" :label-width="formLabelWidth">
+      <el-select v-model="form.region" placeholder="请选择活动区域">
+        <el-option label="区域一" value="shanghai"></el-option>
+        <el-option label="区域二" value="beijing"></el-option>
+      </el-select>
+    </el-form-item>
+  </el-form>
+  <div slot="footer" class="dialog-footer">
+    <el-button @click="dialogFormVisible = false">取 消</el-button>
+    <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+  </div>
+</el-dialog>
+	</div>
 </template>
 
+
 <script>
-export default {
+  export default {
     data() {
-        return {
-            options2: [
-                {
-                    value: '选项1',
-                    label: '黄金糕'
-                },
-                {
-                    value: '选项2',
-                    label: '双皮奶',
-                    disabled: true
-                },
-                {
-                    value: '选项3',
-                    label: '蚵仔煎'
-                },
-                {
-                    value: '选项4',
-                    label: '龙须面'
-                },
-                {
-                    value: '选项5',
-                    label: '北京烤鸭'
-                }
-            ],
-            value2: ''
-        };
+      return {
+        gridData: [{
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        }, {
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        }, {
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        }, {
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        }],
+        dialogTableVisible: false,
+        dialogFormVisible: false,
+        form: {
+          name: '',
+          region: '',
+          date1: '',
+          date2: '',
+          delivery: false,
+          type: [],
+          resource: '',
+          desc: ''
+        },
+        formLabelWidth: '120px'
+      };
     }
-};
+  };
 </script>
-<style lang=scss>
-@import '../assets/scss/var.scss';
-
-$tt:red;
-.div {
-	p{
-		color:$tt;
-		&:hover
-		{
-			color:red;
-		}
-	}
-	
-}
-
-</style>
