@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="div">
 <el-row>
   <el-button>默认按钮</el-button>
   <el-button type="primary">主要按钮</el-button>
@@ -8,26 +8,27 @@
   <el-button type="warning">警告按钮</el-button>
   <el-button type="danger">危险按钮</el-button>
 </el-row>
-
-<el-row>
-  <el-button plain>朴素按钮</el-button>
-  <el-button type="primary" plain>主要按钮</el-button>
-  <el-button type="success" plain>成功按钮</el-button>
-  <el-button type="info" plain>信息按钮</el-button>
-  <el-button type="warning" plain>警告按钮</el-button>
-  <el-button type="danger" plain>危险按钮</el-button>
 </el-row>
-	
- <el-select v-model="value2" placeholder="请选择">
-    <el-option
-      v-for="item in options2"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value"
-      :disabled="item.disabled">
-    </el-option>
-  </el-select>
-	</div>
+	<el-row>
+		<el-button plain>朴素按钮</el-button>
+		<el-button type="primary" plain>主要按钮</el-button>
+		<el-button type="success" plain>成功按钮</el-button>
+		<el-button type="info" plain>信息按钮</el-button>
+		<el-button type="warning" plain>警告按钮</el-button>
+		<el-button type="danger" plain>危险按钮</el-button>
+	</el-row>
+		
+	 <el-select v-model="value2" placeholder="请选择">
+			<el-option
+				v-for="item in options2"
+				:key="item.value"
+				:label="item.label"
+				:value="item.value"
+				:disabled="item.disabled">
+			</el-option>
+		</el-select>
+
+</div>
  
 	
 </template>
@@ -67,7 +68,16 @@ export default {
 <style lang=scss>
 @import '../assets/scss/var.scss';
 
-span {
-    display: flex;
+$tt:red;
+.div {
+	p{
+		color:$tt;
+		&:hover
+		{
+			color:red;
+		}
+	}
+	
 }
+
 </style>
