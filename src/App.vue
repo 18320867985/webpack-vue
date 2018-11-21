@@ -7,11 +7,18 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+data(){
+    return  {
+      test:"name"
+    }
+},
+
+  
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -21,7 +28,6 @@ export default {
   margin-top: 60px;
 	h1{
 		color:red;
-		
 	}
 }
 </style>
