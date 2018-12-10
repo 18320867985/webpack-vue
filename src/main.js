@@ -16,7 +16,6 @@ import './element-variables.scss';
 element();
 
 
-
 /* eslint-disable no-new */
 new Vue({
   router,
